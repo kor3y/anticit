@@ -1,8 +1,8 @@
 vRPanticheatC = {}
-Tunnel.bindInterface("anticit",vRPanticheatC)
-Proxy.addInterface("anticit",vRPanticheatC)
-vRPanticheatS = Tunnel.getInterface("anticit","anticit")
-vRP = Proxy.getInterface("vRP")
+Tunnel.bindInterface('anticit',vRPanticheatC)
+Proxy.addInterface('anticit',vRPanticheatC)
+vRPanticheatS = Tunnel.getInterface('anticit','anticit')
+vRP = Proxy.getInterface('vRP')
 
 --------------------------MASINI
 function checkCar(ped)
@@ -14,7 +14,7 @@ function checkCar(ped)
                 for _, masiniInterzise in pairs(cfg.masini) do
                     if carModel == GetHashKey(masiniInterzise) then
                         DeleteEntity(veh)
-                        vRPanticheatS.banMuist({"Vehicul interzis ["..GetDisplayNameFromVehicleModel(carModel).."]"})
+                        vRPanticheatS.banMuist({'Vehicul interzis ['..GetDisplayNameFromVehicleModel(carModel)..']'})
                     end
                 end
             end
@@ -28,7 +28,7 @@ function checkGodMode(ped)
     local armour = GetPedArmour(ped)
 
     if health > 200 or armour > 200 then
-        vRPanticheatS.banMuist({"GOD Mode"})
+        vRPanticheatS.banMuist({'GOD Mode'})
     end
 end
 --------------------------GODMODE
@@ -50,7 +50,7 @@ end
 function checkArme(ped)
     for _, armeInterzise in pairs(cfg.arme) do
         if HasPedGotWeapon(ped, GetHashKey(armeInterzise), false) then
-            vRPanticheatS.banMuist({"Arma Interzisa ["..armeInterzise.."]"})
+            vRPanticheatS.banMuist({'Arma Interzisa ['..armeInterzise..']'})
         end
     end
 end
@@ -66,7 +66,7 @@ function checkCommands()
                 string.lower(command.name) == string.lower('_' .. blcmd) or
                 string.lower(command.name) == string.lower('-' .. blcmd) or
                 string.lower(command.name) == string.lower('/' .. blcmd)) then
-                vRPanticheatS.banMuist({"Lua Injection"})
+                vRPanticheatS.banMuist({'Lua Injection'})
             end
         end
     end
@@ -96,7 +96,7 @@ end
 --------------------------Spectate
 function checkSpectate()
     if NetworkIsInSpectatorMode() then
-        vRPanticheatS.banMuistPermission({"Spectate"})
+        vRPanticheatS.banMuistPermission({'Spectate'})
     end
 end
 --------------------------Spectate
@@ -110,7 +110,7 @@ function checkBlips()
             end
         end
         if blip > 0 then
-            vRPanticheatS.banMuistPermission({"Blips"})
+            vRPanticheatS.banMuistPermission({'Blips'})
         end
     end
 end
@@ -125,7 +125,7 @@ function checkJumpHack(pedId)
             local isStillJumping = IsPedJumping(pedId)
         until not isStillJumping
         if jumplength > 250 then
-            vRPanticheatS.sendStaffMessage({"Jump Hack (Inaltime: "..jumplength..")"})
+            vRPanticheatS.sendStaffMessage({'Jump Hack (Inaltime: '..jumplength..')'})
         end
     end
 end
@@ -137,7 +137,7 @@ function checkPlate(ped)
         if plate then
             for _, placuta in pairs(cfg.plates) do
                 if string.lower(GetVehicleNumberPlateText(veh)) == placuta then
-                    vRPanticheatS.banMuist({"Car Spawner/Plate Changer"})
+                    vRPanticheatS.banMuist({'Car Spawner/Plate Changer'})
                 end
             end
         end
@@ -167,9 +167,9 @@ Citizen.CreateThread(function()
 end)
 --------------------------------------------------------6 Secunde CHECK
 --------------------------------------------------------Resource Stopper
-AddEventHandler("onResourceStop", function(resource)
+AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
-        TriggerServerEvent("porneste:anticheat")
+        TriggerServerEvent('porneste:anticheat')
 	end
 end)
 --------------------------------------------------------Resource Stopper
