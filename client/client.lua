@@ -4,7 +4,6 @@ Proxy.addInterface("anticit",vRPanticheatC)
 vRPanticheatS = Tunnel.getInterface("anticit","anticit")
 vRP = Proxy.getInterface("vRP")
 
---------------------------------------------------------15 Secunde CHECK
 --------------------------MASINI
 function checkCar(ped)
     if IsPedInAnyVehicle(ped) then
