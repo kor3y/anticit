@@ -1,4 +1,5 @@
 # vrp_anticheat
 Anticheat bun pentru incepatori.
 
-this anticit == sexy
+anticit == sexy
+hackeri == gay
