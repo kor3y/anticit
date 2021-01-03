@@ -1,4 +1,4 @@
 # vrp_anticheat
-Anticehat bun pentru incepatori.
+Anticheat bun pentru incepatori.
 
 this anticit == sexy
